@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #243b55, #141e30);
+}
+
+.button-shadow-light {
+  position: relative;
+  padding: 1rem 2.5rem;
+  border: 2px solid $bg-secondary;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  border-radius: 10px;
+  background: transparent;
+  color: $bg-secondary;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px $bg-basic, 0px 0px 3px $bg-secondary, inset 0px 1px 4px $bg-basic, inset 0px 0px 4px $bg-secondary;
+
+  &:hover {
+    background: $bg-secondary;
+    color: $bg-primary;
+    box-shadow: inset 0 5px 13px $bg-secondary-50;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -50%;
+    background: transparent;
+    height: 50%;
+    width: 100%;
+    transform: perspective(1.3rem) rotateX(40deg) scale(1.2, 0.45);
+    filter: blur(13px);
+    transition: background-color 0.5s, color 0.5s;
+  }
+  &:hover::after {
+    background: $bg-secondary;
+  }
+}
